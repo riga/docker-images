@@ -1,0 +1,13 @@
+*.sublime-project
+*.sublime-workspace
+*.pyc
+*.log
+*.DS_Store
+*.pkl
+*.egg-info
+*.npy
+*.npz
+
+dist
+build
+tmp
