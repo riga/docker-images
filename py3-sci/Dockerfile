@@ -1,4 +1,7 @@
 FROM riga/py3-base
 
-# install numpy
+# install minimal scientific python software stack
 RUN pip install numpy
+RUN pip install scipy
+RUN pip install matplotlib
+RUN pip install pandas
