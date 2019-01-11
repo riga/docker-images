@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.7
 
 # update pip
 RUN pip install --upgrade pip
