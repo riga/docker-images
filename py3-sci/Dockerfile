@@ -5,3 +5,4 @@ RUN pip install numpy
 RUN pip install scipy
 RUN pip install matplotlib
 RUN pip install pandas
+RUN pip install numexpr
