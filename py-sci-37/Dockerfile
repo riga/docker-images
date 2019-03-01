@@ -1,4 +1,4 @@
-FROM riga/py3-base
+FROM riga/py-base:3.7
 
 # install minimal scientific python software stack
 RUN pip install numpy

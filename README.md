@@ -1,3 +1,3 @@
-# docker-python
+# docker-images
 
-Docker images with different python software stacks.
+Docker images with different software stacks.
