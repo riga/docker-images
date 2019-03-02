@@ -6,7 +6,7 @@ build_py() {
     local nopush="$3"
 
     if [ "$image" != "base" ] && [ "$image" != "sci" ]; then
-        2&>1 echo "unknown image '$image'"
+        2>&1 echo "unknown image '$image'"
         return "1"
     fi
 
