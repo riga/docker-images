@@ -34,15 +34,26 @@ build_all() {
     local user="${1:-riga}"
     local nopush="${2:-0}"
 
-    # python images
-    for version in 2.7 3.7 3.8; do
-        for image in py-base py-sci py-ml; do
-            build_image "$image" "$version" "$user"
-
-            if [ "$nopush" != "1" ]; then
-                docker push "$user/$image:$version"
-            fi
+    push_images() {
+        local image="$1"
+        for version in "${@:2}"; do
+            docker push "$user/$image:$version"
         done
+    }
+
+    # python images
+    for image in py-base py-sci py-ml; do
+        build_image "$image" "2.7" "$user"
+        docker tag "$user/$image:2.7" "$user/$image:2"
+        [ "$nopush" != "1" ] && push_images "$image" 2.7 2
+
+        build_image "$image" "3.7" "$user"
+        [ "$nopush" != "1" ] && push_images "$image" 3.7
+
+        build_image "$image" "3.8" "$user"
+        docker tag "$user/$image:3.8" "$user/$image:3"
+        docker tag "$user/$image:3.8" "$user/$image:latest"
+        [ "$nopush" != "1" ] && push_images "$image" 3.8 3 latest
     done
 }
 [ -z "$ZSH_VERSION" ] && export -f build_all
