@@ -1,0 +1,14 @@
+FROM python:3.8
+
+# set the workdir
+WORKDIR /root
+
+# minimal software stack
+RUN apt-get update; apt-get clean
+RUN apt-get install -y nano less htop; apt-get clean
+
+# update pip
+RUN pip install --upgrade pip
+
+# install base software
+RUN pip install ipython

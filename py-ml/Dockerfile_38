@@ -1,0 +1,6 @@
+FROM riga/py-sci:3.8
+
+# install minimal machine learning software stack
+RUN pip install tensorflow
+RUN pip install scikit-learn
+RUN pip install scikit-optimize
