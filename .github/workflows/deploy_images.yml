@@ -21,7 +21,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-base
-          dockerfile: Dockerfile_27
+          dockerfile: py-base/Dockerfile_27
           repository: riga/py-base
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -41,7 +41,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-sci
-          dockerfile: Dockerfile_27
+          dockerfile: py-sci/Dockerfile_27
           repository: riga/py-sci
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -61,7 +61,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-ml
-          dockerfile: Dockerfile_27
+          dockerfile: py-ml/Dockerfile_27
           repository: riga/py-ml
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -80,7 +80,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-base
-          dockerfile: Dockerfile_38
+          dockerfile: py-base/Dockerfile_38
           repository: riga/py-base
           tags: 3.8,3,latest
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -100,7 +100,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-sci
-          dockerfile: Dockerfile_38
+          dockerfile: py-sci/Dockerfile_38
           repository: riga/py-sci
           tags: 3.8,3,latest
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -120,7 +120,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-ml
-          dockerfile: Dockerfile_38
+          dockerfile: py-ml/Dockerfile_38
           repository: riga/py-ml
           tags: 3.8,3,latest
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -139,7 +139,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-base
-          dockerfile: Dockerfile_39
+          dockerfile: py-base/Dockerfile_39
           repository: riga/py-base
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -159,7 +159,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-sci
-          dockerfile: Dockerfile_39
+          dockerfile: py-sci/Dockerfile_39
           repository: riga/py-sci
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -179,7 +179,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           path: py-ml
-          dockerfile: Dockerfile_39
+          dockerfile: py-ml/Dockerfile_39
           repository: riga/py-ml
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
