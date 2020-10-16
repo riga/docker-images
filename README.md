@@ -1,3 +1,3 @@
 # docker-images
 
-Docker images with different software stacks.
+Generic docker images with different software stacks.

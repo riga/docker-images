@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.9
 
 # set the workdir
 WORKDIR /root
@@ -8,7 +8,7 @@ RUN apt-get update; apt-get clean
 RUN apt-get install -y nano less htop; apt-get clean
 
 # update pip
-RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --upgrade pip
 
 # install base software
-RUN pip install ipython
+RUN pip install --no-cache-dir ipython

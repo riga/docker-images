@@ -1,4 +1,4 @@
-FROM riga/py-base:2.7
+FROM riga/py-base:3.9
 
 # install minimal scientific python software stack
 RUN pip install --no-cache-dir numpy
