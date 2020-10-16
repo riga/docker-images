@@ -1,0 +1,6 @@
+FROM riga/py-sci:3.8
+
+# install minimal machine learning software stack
+RUN pip install --no-cache-dir tensorflow
+RUN pip install --no-cache-dir scikit-learn
+RUN pip install --no-cache-dir scikit-optimize

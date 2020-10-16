@@ -20,8 +20,49 @@ jobs:
       - name: Build and deploy image 🐳
         uses: docker/build-push-action@v1
         with:
-          path: py-base-27
+          path: py-base
+          file: Dockerfile_27
           repository: riga/py-base
+          tags: 2.7,2
+          push: ${{ github.event.inputs.build_only != 'true' }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  py-sci-27:
+    needs: py-base-27
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build and deploy image 🐳
+        uses: docker/build-push-action@v1
+        with:
+          path: py-sci
+          file: Dockerfile_27
+          repository: riga/py-sci
+          tags: 2.7,2
+          push: ${{ github.event.inputs.build_only != 'true' }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  py-ml-27:
+    needs: py-sci-27
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build and deploy image 🐳
+        uses: docker/build-push-action@v1
+        with:
+          path: py-ml
+          file: Dockerfile_27
+          repository: riga/py-ml
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -38,46 +79,10 @@ jobs:
       - name: Build and deploy image 🐳
         uses: docker/build-push-action@v1
         with:
-          path: py-base-38
+          path: py-base
+          file: Dockerfile_38
           repository: riga/py-base
           tags: 3.8,3,latest
-          push: ${{ github.event.inputs.build_only != 'true' }}
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-  py-base-39:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
-      - name: Build and deploy image 🐳
-        uses: docker/build-push-action@v1
-        with:
-          path: py-base-39
-          repository: riga/py-base
-          tags: "3.9"
-          push: ${{ github.event.inputs.build_only != 'true' }}
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-  py-sci-py27:
-    needs: py-base-27
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-
-      - name: Build and deploy image 🐳
-        uses: docker/build-push-action@v1
-        with:
-          path: py-sci-27
-          repository: riga/py-sci
-          tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -94,9 +99,49 @@ jobs:
       - name: Build and deploy image 🐳
         uses: docker/build-push-action@v1
         with:
-          path: py-sci-38
+          path: py-sci
+          file: Dockerfile_38
           repository: riga/py-sci
           tags: 3.8,3,latest
+          push: ${{ github.event.inputs.build_only != 'true' }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  py-ml-38:
+    needs: py-sci-38
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build and deploy image 🐳
+        uses: docker/build-push-action@v1
+        with:
+          path: py-ml
+          file: Dockerfile_38
+          repository: riga/py-ml
+          tags: 3.8,3,latest
+          push: ${{ github.event.inputs.build_only != 'true' }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  py-base-39:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build and deploy image 🐳
+        uses: docker/build-push-action@v1
+        with:
+          path: py-base
+          file: Dockerfile_39
+          repository: riga/py-base
+          tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -113,8 +158,29 @@ jobs:
       - name: Build and deploy image 🐳
         uses: docker/build-push-action@v1
         with:
-          path: py-sci-39
+          path: py-sci
+          file: Dockerfile_39
           repository: riga/py-sci
+          tags: "3.9"
+          push: ${{ github.event.inputs.build_only != 'true' }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+  py-ml-39:
+    needs: py-sci-39
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Build and deploy image 🐳
+        uses: docker/build-push-action@v1
+        with:
+          path: py-ml
+          file: Dockerfile_39
+          repository: riga/py-ml
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
           username: ${{ secrets.DOCKERHUB_USERNAME }}
