@@ -18,10 +18,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-base
-          file: Dockerfile_27
+          dockerfile: Dockerfile_27
           repository: riga/py-base
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -38,10 +38,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-sci
-          file: Dockerfile_27
+          dockerfile: Dockerfile_27
           repository: riga/py-sci
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -58,10 +58,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-ml
-          file: Dockerfile_27
+          dockerfile: Dockerfile_27
           repository: riga/py-ml
           tags: 2.7,2
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -77,10 +77,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-base
-          file: Dockerfile_38
+          dockerfile: Dockerfile_38
           repository: riga/py-base
           tags: 3.8,3,latest
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -97,10 +97,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-sci
-          file: Dockerfile_38
+          dockerfile: Dockerfile_38
           repository: riga/py-sci
           tags: 3.8,3,latest
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -117,10 +117,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-ml
-          file: Dockerfile_38
+          dockerfile: Dockerfile_38
           repository: riga/py-ml
           tags: 3.8,3,latest
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -136,10 +136,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-base
-          file: Dockerfile_39
+          dockerfile: Dockerfile_39
           repository: riga/py-base
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -156,10 +156,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-sci
-          file: Dockerfile_39
+          dockerfile: Dockerfile_39
           repository: riga/py-sci
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
@@ -176,10 +176,10 @@ jobs:
           persist-credentials: false
 
       - name: Build and deploy image 🐳
-        uses: docker/build-push-action@releases/v1
+        uses: docker/build-push-action@v1
         with:
           path: py-ml
-          file: Dockerfile_39
+          dockerfile: Dockerfile_39
           repository: riga/py-ml
           tags: "3.9"
           push: ${{ github.event.inputs.build_only != 'true' }}
