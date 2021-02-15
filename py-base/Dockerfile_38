@@ -5,10 +5,9 @@ WORKDIR /root
 
 # minimal software stack
 RUN apt-get update; apt-get clean
-RUN apt-get install -y nano less htop; apt-get clean
-
-# update pip
-RUN pip install --no-cache-dir --upgrade pip
+RUN apt-get install -y nano less htop which; apt-get clean
 
 # install base software
-RUN pip install --no-cache-dir ipython
+RUN pip install --no-cache-dir --upgrade pip
+RUN pip install --no-cache-dir --upgrade ipython
+RUN pip install --no-cache-dir six
