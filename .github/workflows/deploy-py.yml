@@ -159,7 +159,7 @@ jobs:
           path: py-ml
           dockerfile: py-ml/Dockerfile_38
           repository: riga/py-ml
-          tags: 3.8,3,latest
+          tags: 3.8
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
@@ -198,21 +198,20 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-  # disabled until tf works with 39
-  # ml39:
-  #   needs: sci39
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout 🛎️
-  #       uses: actions/checkout@v2
-  #       with:
-  #         persist-credentials: false
-  #     - name: Build and deploy image 🐳
-  #       uses: docker/build-push-action@v1
-  #       with:
-  #         path: py-ml
-  #         dockerfile: py-ml/Dockerfile_39
-  #         repository: riga/py-ml
-  #         tags: 3.9
-  #         username: ${{ secrets.DOCKERHUB_USERNAME }}
-  #         password: ${{ secrets.DOCKERHUB_TOKEN }}
+  ml39:
+    needs: sci39
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+      - name: Build and deploy image 🐳
+        uses: docker/build-push-action@v1
+        with:
+          path: py-ml
+          dockerfile: py-ml/Dockerfile_39
+          repository: riga/py-ml
+          tags: 3.9,3,latest
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
